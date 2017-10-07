@@ -1,0 +1,8 @@
+
+
+target 'LogsCheck' do
+  use_frameworks!
+pod "AlamofireXmlToObjects"
+pod 'AEXML'
+pod "MBProgressHUD"
+end
