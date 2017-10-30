@@ -20,7 +20,7 @@ class ServerTimeResponseModel: BaseModel {
             let xmlDoc = try? AEXMLDocument(xml: xml)
             let result = xmlDoc?.root["ResultDoc"]
             if(result?.value != nil){
-                time = result?.value?.toDate(format: Utility.timeFormat)
+                time = result?.value?.toTime()
             }
             
         }catch {

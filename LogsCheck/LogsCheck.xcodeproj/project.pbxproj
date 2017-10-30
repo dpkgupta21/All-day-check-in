@@ -51,23 +51,6 @@
 		2A11EA01EBB7B19DAA75458F /* Pods_LogsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		26AFA1A81F6E8D59009F7439 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26AFA18B1F6E8D59009F7439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26AFA1921F6E8D59009F7439;
-			remoteInfo = LogsCheck;
-		};
-		26AFA1B31F6E8D59009F7439 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26AFA18B1F6E8D59009F7439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26AFA1921F6E8D59009F7439;
-			remoteInfo = LogsCheck;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogsCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26312F5A1F817996001907F4 /* ServerTimeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTimeResponseModel.swift; sourceTree = "<group>"; };
@@ -116,8 +99,6 @@
 		26AFA19D1F6E8D59009F7439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26AFA1A01F6E8D59009F7439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26AFA1A21F6E8D59009F7439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26AFA1A71F6E8D59009F7439 /* LogsCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogsCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26AFA1B21F6E8D59009F7439 /* LogsCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogsCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		580E433FB24443F6B2C8E897 /* Pods-LogsCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogsCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,20 +111,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A11EA01EBB7B19DAA75458F /* Pods_LogsCheck.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26AFA1A41F6E8D59009F7439 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26AFA1AF1F6E8D59009F7439 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				26AFA1931F6E8D59009F7439 /* LogsCheck.app */,
-				26AFA1A71F6E8D59009F7439 /* LogsCheckTests.xctest */,
-				26AFA1B21F6E8D59009F7439 /* LogsCheckUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,42 +313,6 @@
 			productReference = 26AFA1931F6E8D59009F7439 /* LogsCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
-		26AFA1A61F6E8D59009F7439 /* LogsCheckTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26AFA1BE1F6E8D59009F7439 /* Build configuration list for PBXNativeTarget "LogsCheckTests" */;
-			buildPhases = (
-				26AFA1A31F6E8D59009F7439 /* Sources */,
-				26AFA1A41F6E8D59009F7439 /* Frameworks */,
-				26AFA1A51F6E8D59009F7439 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26AFA1A91F6E8D59009F7439 /* PBXTargetDependency */,
-			);
-			name = LogsCheckTests;
-			productName = LogsCheckTests;
-			productReference = 26AFA1A71F6E8D59009F7439 /* LogsCheckTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		26AFA1B11F6E8D59009F7439 /* LogsCheckUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26AFA1C11F6E8D59009F7439 /* Build configuration list for PBXNativeTarget "LogsCheckUITests" */;
-			buildPhases = (
-				26AFA1AE1F6E8D59009F7439 /* Sources */,
-				26AFA1AF1F6E8D59009F7439 /* Frameworks */,
-				26AFA1B01F6E8D59009F7439 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26AFA1B41F6E8D59009F7439 /* PBXTargetDependency */,
-			);
-			name = LogsCheckUITests;
-			productName = LogsCheckUITests;
-			productReference = 26AFA1B21F6E8D59009F7439 /* LogsCheckUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -396,17 +325,8 @@
 				TargetAttributes = {
 					26AFA1921F6E8D59009F7439 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-					};
-					26AFA1A61F6E8D59009F7439 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 26AFA1921F6E8D59009F7439;
-					};
-					26AFA1B11F6E8D59009F7439 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 26AFA1921F6E8D59009F7439;
+						DevelopmentTeam = BJF5354GZ6;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -424,8 +344,6 @@
 			projectRoot = "";
 			targets = (
 				26AFA1921F6E8D59009F7439 /* LogsCheck */,
-				26AFA1A61F6E8D59009F7439 /* LogsCheckTests */,
-				26AFA1B11F6E8D59009F7439 /* LogsCheckUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,20 +356,6 @@
 				26AFA1A11F6E8D59009F7439 /* LaunchScreen.storyboard in Resources */,
 				26AFA19E1F6E8D59009F7439 /* Assets.xcassets in Resources */,
 				26AFA19C1F6E8D59009F7439 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26AFA1A51F6E8D59009F7439 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26AFA1B01F6E8D59009F7439 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,20 +403,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireXmlToObjects/AlamofireXmlToObjects.framework",
-				"${BUILT_PRODUCTS_DIR}/EVReflection/EVReflection.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/XMLDictionary/XMLDictionary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireXmlToObjects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EVReflection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLDictionary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -567,34 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		26AFA1A31F6E8D59009F7439 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26AFA1AE1F6E8D59009F7439 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		26AFA1A91F6E8D59009F7439 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26AFA1921F6E8D59009F7439 /* LogsCheck */;
-			targetProxy = 26AFA1A81F6E8D59009F7439 /* PBXContainerItemProxy */;
-		};
-		26AFA1B41F6E8D59009F7439 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26AFA1921F6E8D59009F7439 /* LogsCheck */;
-			targetProxy = 26AFA1B31F6E8D59009F7439 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		26AFA19A1F6E8D59009F7439 /* Main.storyboard */ = {
@@ -657,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -702,7 +571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -716,11 +585,15 @@
 			baseConfigurationReference = A76D4600D5E914017849EF31 /* Pods-LogsCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = BJF5354GZ6;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alldayclockin.alldayclockin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
+				PROVISIONING_PROFILE_SPECIFIER = AllDayClockIn;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -731,67 +604,17 @@
 			baseConfigurationReference = 580E433FB24443F6B2C8E897 /* Pods-LogsCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = BJF5354GZ6;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alldayclockin.alldayclockin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
+				PROVISIONING_PROFILE_SPECIFIER = AllDayClockIn;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		26AFA1BF1F6E8D59009F7439 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LogsCheckTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheckTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogsCheck.app/LogsCheck";
-			};
-			name = Debug;
-		};
-		26AFA1C01F6E8D59009F7439 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LogsCheckTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheckTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogsCheck.app/LogsCheck";
-			};
-			name = Release;
-		};
-		26AFA1C21F6E8D59009F7439 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = LogsCheckUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheckUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = LogsCheck;
-			};
-			name = Debug;
-		};
-		26AFA1C31F6E8D59009F7439 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = LogsCheckUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.LogsCheckUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = LogsCheck;
 			};
 			name = Release;
 		};
@@ -812,24 +635,6 @@
 			buildConfigurations = (
 				26AFA1BC1F6E8D59009F7439 /* Debug */,
 				26AFA1BD1F6E8D59009F7439 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		26AFA1BE1F6E8D59009F7439 /* Build configuration list for PBXNativeTarget "LogsCheckTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26AFA1BF1F6E8D59009F7439 /* Debug */,
-				26AFA1C01F6E8D59009F7439 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		26AFA1C11F6E8D59009F7439 /* Build configuration list for PBXNativeTarget "LogsCheckUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26AFA1C21F6E8D59009F7439 /* Debug */,
-				26AFA1C31F6E8D59009F7439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

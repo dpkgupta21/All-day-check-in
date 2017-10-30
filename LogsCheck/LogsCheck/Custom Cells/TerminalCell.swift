@@ -10,7 +10,7 @@ import UIKit
 
 class TerminalCell: UITableViewCell {
 
-    @IBOutlet weak var BtnCheckbox: UIButton!
+    @IBOutlet weak var ImgCheck: UIImageView!
     @IBOutlet weak var LblTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +23,7 @@ class TerminalCell: UITableViewCell {
     
     func configureCell(data:TerminalModel){
         LblTitle.text = data.TerminalName
-        BtnCheckbox.isSelected = data.IsSelected
+        ImgCheck.isHighlighted = data.IsSelected
     }
 
 }

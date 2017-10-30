@@ -23,7 +23,7 @@ class RollCallCell: UITableViewCell {
     func configureCell(data:RollCallModel){
         LblDate.attributedText = Utility.getAttributedString(date: data.WorkDate)
         LblDesc.text = String(data.EmployeeID)
-        LblTime.text = data.WorkDate.shortTimeString
+        LblTime.text = data.DayIn1.shortTimeString
     }
 
 }

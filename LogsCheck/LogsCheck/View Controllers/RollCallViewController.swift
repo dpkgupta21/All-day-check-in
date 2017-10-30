@@ -10,17 +10,17 @@ import UIKit
 
 class RollCallViewController: UIViewController , UITableViewDelegate, UITableViewDataSource,TerminalSelectDelgate
 {
-
+    
     @IBOutlet weak var TblContnt: UITableView!
-
+    
     var response : RollCallResonseModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,7 @@ class RollCallViewController: UIViewController , UITableViewDelegate, UITableVie
         viewController.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
         viewController.delegate = self
         self.present(viewController, animated: true, completion: nil)
+        TblContnt.estimatedRowHeight = 50;
     }
     
     func GetLogs(terminals:String) {
@@ -55,8 +56,8 @@ class RollCallViewController: UIViewController , UITableViewDelegate, UITableVie
             }
         }
     }
-
-
+    
+    
     func OkClicked(terminal : String ){
         GetLogs(terminals: terminal)
     }
@@ -66,7 +67,7 @@ class RollCallViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  response != nil ? response!.RollCalls.count : 0;
+        return  response != nil ? response!.RollCalls.count - 2 : 0;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,5 +80,5 @@ class RollCallViewController: UIViewController , UITableViewDelegate, UITableVie
         cell.configureCell(data: response.RollCalls[indexPath.row])
         return cell;
     }
-
+    
 }

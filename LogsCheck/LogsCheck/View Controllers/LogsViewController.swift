@@ -34,7 +34,8 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func setTextFeilds(){
         startPicker = UIDatePicker()
         endPicker = UIDatePicker()
-        
+        startPicker.datePickerMode = .date
+        endPicker.datePickerMode = .date
         TxtFromDate.inputView = startPicker;
         TxtToDate.inputView = endPicker;
         
@@ -66,13 +67,13 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     internal func doneClicked(sender: UIBarButtonItem) {
         startDate = startPicker.date
-        TxtFromDate.text = startDate.ToString(format: Utility.longDateFormat)
+        TxtFromDate.text = startDate.longDateString
         self.view.endEditing(true)
     }
     
     internal func todoneClicked(sender: UIBarButtonItem) {
         endDate = endPicker.date
-        TxtToDate.text = endDate.ToString(format: Utility.longDateFormat)
+        TxtToDate.text = endDate.longDateString
         self.view.endEditing(true)
     }
     
@@ -103,7 +104,7 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  response != nil ? response!.Logs.count : 0;
+        return  response != nil ? response!.Logs.count - 2  : 0;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

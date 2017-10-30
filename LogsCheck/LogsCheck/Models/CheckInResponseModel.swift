@@ -37,13 +37,13 @@ class CheckInResponseModel: BaseModel {
         
     }
     
-    static func CheckIn(status:String,callback:@escaping (_ result:CheckInResponseModel?,_ error:NSString?)->Void)
+    static func CheckIn(status:String,lat:String,lang:String,callback:@escaping (_ result:CheckInResponseModel?,_ error:NSString?)->Void)
     {
         let dictionary = [
             "empID" : UserDeafultsManager.SharedDefaults.MemberID,
             "status" : status,
-            "longitude":String(describing: CLLocationManager().location?.coordinate.longitude),
-            "latitude":String(describing: CLLocationManager().location?.coordinate.latitude)
+            "longitude":lang,
+            "latitude":lat
         ]
         let xml = XMLParser.CreateXML(data: dictionary)
         

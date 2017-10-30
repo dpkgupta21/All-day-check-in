@@ -14,7 +14,7 @@ public class Utility{
     static var hud : MBProgressHUD!
     
     static var longDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-    static var timeFormat = "HH:mm"
+    static var timeFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
     
     class func isConnectedToNetwork() -> Bool {
         
