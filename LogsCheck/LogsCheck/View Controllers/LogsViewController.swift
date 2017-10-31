@@ -28,16 +28,45 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
         self.navigationItem.title = "Logs"
         TblContnt.estimatedRowHeight = 70;
         setTextFeilds()
+        GetLogs()
         // Do any additional setup after loading the view.
     }
     
+    func startOfMonth() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: Date.now)))!
+    }
+    
+    func endOfMonth() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
+    }
+    
+    func convertDateIntoFormatString(date: Date) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date);
+    }
+    
     func setTextFeilds(){
+        //let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        //TxtFromDate.text = dateFormatter.string(from: startOfMonth());
+        //TxtToDate.text = dateFormatter.string(from: endOfMonth());
+        
+        TxtFromDate.text = convertDateIntoFormatString(date: startOfMonth());
+        TxtToDate.text = convertDateIntoFormatString(date: endOfMonth());
+
+        startDate = startOfMonth();
+        endDate = endOfMonth();        
+        
         startPicker = UIDatePicker()
         endPicker = UIDatePicker()
         startPicker.datePickerMode = .date
         endPicker.datePickerMode = .date
         TxtFromDate.inputView = startPicker;
         TxtToDate.inputView = endPicker;
+        startPicker.date = startDate;
+        endPicker.date = endDate;
         
         let doneBar = UIToolbar(frame: CGRect(x:0, y:0, width:self.view.bounds.size.width, height:40.0))
         
@@ -67,13 +96,15 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     internal func doneClicked(sender: UIBarButtonItem) {
         startDate = startPicker.date
-        TxtFromDate.text = startDate.longDateString
+        //TxtFromDate.text = startDate.longDateString
+        TxtFromDate.text = convertDateIntoFormatString(date: startDate);
         self.view.endEditing(true)
     }
     
     internal func todoneClicked(sender: UIBarButtonItem) {
         endDate = endPicker.date
-        TxtToDate.text = endDate.longDateString
+        //TxtToDate.text = endDate.longDateString
+        TxtToDate.text = convertDateIntoFormatString(date: endDate);
         self.view.endEditing(true)
     }
     

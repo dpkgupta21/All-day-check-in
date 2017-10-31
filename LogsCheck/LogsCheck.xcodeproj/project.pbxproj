@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E858A91FA892EF00ACD225 /* CompanyZoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E858A81FA892EF00ACD225 /* CompanyZoneModel.swift */; };
+		18E858AB1FA8941B00ACD225 /* CompanyZoneResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E858AA1FA8941B00ACD225 /* CompanyZoneResponseModel.swift */; };
 		26312F5B1F817996001907F4 /* ServerTimeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26312F5A1F817996001907F4 /* ServerTimeResponseModel.swift */; };
 		26312F631F818D3D001907F4 /* Calendar+Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26312F5D1F818D3D001907F4 /* Calendar+Dispatch.swift */; };
 		26312F641F818D3D001907F4 /* Calendar+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26312F5E1F818D3D001907F4 /* Calendar+Utilities.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogsCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E858A81FA892EF00ACD225 /* CompanyZoneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyZoneModel.swift; sourceTree = "<group>"; };
+		18E858AA1FA8941B00ACD225 /* CompanyZoneResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyZoneResponseModel.swift; sourceTree = "<group>"; };
 		26312F5A1F817996001907F4 /* ServerTimeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTimeResponseModel.swift; sourceTree = "<group>"; };
 		26312F5D1F818D3D001907F4 /* Calendar+Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+Dispatch.swift"; sourceTree = "<group>"; };
 		26312F5E1F818D3D001907F4 /* Calendar+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+Utilities.swift"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		2670015E1F7C04EA0002DC40 /* UIView+IBUIView */ = {
 			isa = PBXGroup;
 			children = (
+				267001681F7C06920002DC40 /* TPKeyboardAvoiding */,
 				2670015F1F7C04EA0002DC40 /* UIView+IBUIView.h */,
 				267001601F7C04EA0002DC40 /* UIView+IBUIView.m */,
 			);
@@ -160,7 +165,8 @@
 				2670016F1F7C06920002DC40 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				267001701F7C06920002DC40 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
-			path = TPKeyboardAvoiding;
+			name = TPKeyboardAvoiding;
+			path = ../TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		267001751F7C08530002DC40 /* WebManagers */ = {
@@ -213,7 +219,6 @@
 				26AFA19F1F6E8D59009F7439 /* LaunchScreen.storyboard */,
 				26AFA19A1F6E8D59009F7439 /* Main.storyboard */,
 				26AFA1C71F6E8FB0009F7439 /* Models */,
-				267001681F7C06920002DC40 /* TPKeyboardAvoiding */,
 				2670015C1F7C04EA0002DC40 /* UITextField+Additions */,
 				2670015E1F7C04EA0002DC40 /* UIView+IBUIView */,
 				267001781F7C08910002DC40 /* Utils */,
@@ -247,6 +252,8 @@
 		26AFA1C71F6E8FB0009F7439 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				18E858AA1FA8941B00ACD225 /* CompanyZoneResponseModel.swift */,
+				18E858A81FA892EF00ACD225 /* CompanyZoneModel.swift */,
 				268CE19C1F7FF4CD009C59F8 /* BaseModel.swift */,
 				26312F691F819A0A001907F4 /* CheckInResponseModel.swift */,
 				267C8BF01F7F066F00EECE06 /* LoginResponseModel.swift */,
@@ -431,11 +438,13 @@
 				26312F661F818D3D001907F4 /* Date+Math.swift in Sources */,
 				267001771F7C08530002DC40 /* WebserviceCommunication.swift in Sources */,
 				266278061F84003A0085AE2B /* CheckBtnStatusResponseModel.swift in Sources */,
+				18E858A91FA892EF00ACD225 /* CompanyZoneModel.swift in Sources */,
 				267C8BF11F7F066F00EECE06 /* LoginResponseModel.swift in Sources */,
 				26312F641F818D3D001907F4 /* Calendar+Utilities.swift in Sources */,
 				26312F701F81A0B2001907F4 /* RollCallResonseModel.swift in Sources */,
 				26312F7C1F8267FE001907F4 /* TerminalModel.swift in Sources */,
 				26865ACB1F7F8733001BFE5B /* RollCallViewController.swift in Sources */,
+				18E858AB1FA8941B00ACD225 /* CompanyZoneResponseModel.swift in Sources */,
 				26312F631F818D3D001907F4 /* Calendar+Dispatch.swift in Sources */,
 				26AFA1971F6E8D59009F7439 /* AppDelegate.swift in Sources */,
 				26312F7A1F823780001907F4 /* RollCallCell.swift in Sources */,

@@ -41,6 +41,7 @@ let METHOD_GETLOGS = "fetchLogs"
 let METHOD_GETTERMINALS = "fetchTerminals"
 let METHOD_GETROLLCALL = "FetchRollCall"
 let METHOD_GETBUTTONSTATUS = "CheckForButtonsStatus"
+let METHOD_COMPANY_TIME_ZONE = "FetchCompanyTimeZone"
 
 class WebserviceCommunication: NSObject,URLSessionDownloadDelegate,URLSessionTaskDelegate{
     @available(iOS 7.0, *)

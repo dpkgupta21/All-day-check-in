@@ -48,6 +48,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func RefreshClicked(_ sender: Any) {
         GetTime()
+        
     }
     func updateTimer() {
         GetButtonStatus()
@@ -79,6 +80,34 @@ class HomeViewController: UIViewController {
         
         
     }
+    
+    func GetCompanyTimeZone() {
+        
+        Utility.showProgressHud(text: "")
+        CompanyZoneResponseModel.FetchCompanyTimeZone(callback: { (checkin, error) in
+    
+            DispatchQueue.main.async {
+                Utility.hideProgressHud()
+                if(checkin != nil && checkin!.timeZoneVal != nil && checkin?.ErrorMessage == nil){
+                    self.LblTime.text = checkin?.timeZoneVal;
+                    
+                }else if(checkin != nil){
+                    let info = ["title":"Error",
+                                "message":checkin?.ErrorMessage != nil ? checkin?.ErrorMessage : "error occured"  ,
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                }else{
+                    let info = ["title":"Error",
+                                "message":error,
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                }
+            }
+        })
+        
+        
+    }
+    
     
     func GetButtonStatus() {
         Utility.showProgressHud(text: "")
@@ -133,36 +162,16 @@ class HomeViewController: UIViewController {
     }
     
     func Logout() {
-        Utility.showProgressHud(text: "")
-        CheckInResponseModel.CheckIn(status: "LOGOUT",
-                                     lat: String(describing: locationManager.location!.coordinate.latitude),
-                                     lang: String(describing: locationManager.location!.coordinate.longitude),
-                                     callback: { (checkin, error) in
-                                        
-                                        DispatchQueue.main.async {
-                                            Utility.hideProgressHud()
-                                            if(checkin != nil && checkin?.ErrorMessage == nil){
-                                                Utility.showToast(text: (checkin?.msg)!)
-                                                UserDeafultsManager.SharedDefaults.IsLoggedIn = false
-                                                
-                                                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginNavigationVC") as! UINavigationController
-                                                UIApplication.shared.keyWindow?.rootViewController = viewController
-                                                
-                                            }else if(checkin != nil){
-                                                let info = ["title":"Error",
-                                                            "message":checkin?.ErrorMessage,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                            }else{
-                                                let info = ["title":"Error",
-                                                            "message":error,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                            }
-                                        }
-        })
+        
+        UserDeafultsManager.SharedDefaults.IsLoggedIn = false
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginNavigationVC") as! UINavigationController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        
     }
+    
+    
     
     @IBAction func BtnLogsClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "LogsSegue", sender: self)

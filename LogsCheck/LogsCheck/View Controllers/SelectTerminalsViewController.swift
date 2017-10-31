@@ -55,7 +55,7 @@ class SelectTerminalsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  response != nil ? response!.Terminals.count : 0;
+        return  response != nil ? response!.Terminals.count-2 : 0;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

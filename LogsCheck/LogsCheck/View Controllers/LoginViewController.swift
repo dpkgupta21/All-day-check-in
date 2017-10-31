@@ -61,27 +61,7 @@ class LoginViewController: UIViewController {
                     UserDeafultsManager.SharedDefaults.FirstName = user!.FirstName
                     UserDeafultsManager.SharedDefaults.LastName = user!.LastName
                     
-                    CheckInResponseModel.CheckIn(status: "Login",
-                                                 lat: String(describing: self.locationManager.location?.coordinate.latitude),
-                                                 lang: String(describing: self.locationManager.location?.coordinate.longitude),
-                                                 callback: { (checkin, error) in
-                                                    DispatchQueue.main.async {
-                                                        if(checkin != nil && checkin?.ErrorMessage == nil){
-                                                            Utility.showToast(text: (checkin?.msg)!)
-                                                        }else if(checkin != nil){
-                                                            let info = ["title":"Error",
-                                                                        "message":checkin?.ErrorMessage,
-                                                                        "cancel":"Ok"]
-                                                            Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                                        }else{
-                                                            let info = ["title":"Error",
-                                                                        "message":error,
-                                                                        "cancel":"Ok"]
-                                                            Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                                        }
-                                                    }
-                    })
-                    
+                                        
                     self.performSegue(withIdentifier: "LoginSegue", sender: self);
                 }else if(user != nil){
                     let info = ["title":"Error",
