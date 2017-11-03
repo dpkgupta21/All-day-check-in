@@ -32,8 +32,9 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        GetTime()
+        GetCompanyTimeZone()
         runTimer()
+        addTimeZonetoCurrentTime()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,6 +48,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func RefreshClicked(_ sender: Any) {
+        
         GetTime()
         
     }
@@ -85,7 +87,7 @@ class HomeViewController: UIViewController {
         
         Utility.showProgressHud(text: "")
         CompanyZoneResponseModel.FetchCompanyTimeZone(callback: { (checkin, error) in
-    
+            
             DispatchQueue.main.async {
                 Utility.hideProgressHud()
                 if(checkin != nil && checkin!.timeZoneVal != nil && checkin?.ErrorMessage == nil){
@@ -108,6 +110,48 @@ class HomeViewController: UIViewController {
         
     }
     
+    func addTimeZonetoCurrentTime()
+    {
+        
+        let time1 = "02:15:12"
+        let time2 = "+0100"
+        //let time3 = "+01:00"
+        //let time = time1+time2;
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone=TimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let date:NSDate = dateFormatter.date(from: time1)! as NSDate
+        let str:String=dateFormatter.string(from: date as Date)
+        
+        print(str);
+        
+        //dateFormatter.timeZone=TimeZone(abbreviation: "GMT"+time2)
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "HH:mm:sszzz"
+        let str1 = str + time2
+        let date1:NSDate = dateFormatter1.date(from: str1)! as NSDate
+        
+        let dateFormatter3 = DateFormatter()
+        dateFormatter3.dateFormat = "HH:mm:ss"
+        let str2:String=dateFormatter3.string(from: date1 as Date)
+        
+        print(str2);
+        
+        
+        
+        
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.timeZone=TimeZone(abbreviation: "GMT")
+        //        dateFormatter.dateFormat = "HH:mm:ss"
+        //        let date:NSDate = dateFormatter.date(from: time1)! as NSDate
+        //
+        //        let dateFormatter1 = DateFormatter()
+        //        dateFormatter1.dateFormat = "HH:mm:ss"
+        //        let str:String=dateFormatter1.string(from: date as Date)
+        //        print(str)
+        
+        
+    }
     
     func GetButtonStatus() {
         Utility.showProgressHud(text: "")
