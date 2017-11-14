@@ -60,6 +60,7 @@ public extension Date {
     
     public func ToString(format:String) -> String{
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }

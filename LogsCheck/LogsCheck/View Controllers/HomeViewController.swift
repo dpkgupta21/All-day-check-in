@@ -23,18 +23,19 @@ class HomeViewController: UIViewController {
     var locationManager: CLLocationManager!
     var menu : UIAlertController!
     var timer : Timer!
-    //    var clocktimer : Timer!
+    var clocktimer : Timer!
+    var checkInTime : Date!
+    var timeZone : Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         GetButtonStatus()
+        GetCompanyTimeZone()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        GetCompanyTimeZone()
         runTimer()
-        addTimeZonetoCurrentTime()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,11 +48,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    @IBAction func RefreshClicked(_ sender: Any) {
-        
-        GetTime()
-        
-    }
     func updateTimer() {
         GetButtonStatus()
     }
@@ -64,8 +60,9 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 Utility.hideProgressHud()
                 if(checkin != nil && checkin!.time != nil && checkin?.ErrorMessage == nil){
-                    self.LblTime.text = checkin?.time.ToString(format: "HH:mm:ss");
-                    
+                    self.checkInTime = checkin?.time!;
+                    self.showTime()
+                    self.clocktimer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(self.clockTimer)), userInfo: nil, repeats: true)
                 }else if(checkin != nil){
                     let info = ["title":"Error",
                                 "message":checkin?.ErrorMessage != nil ? checkin?.ErrorMessage : "error occured"  ,
@@ -91,8 +88,8 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 Utility.hideProgressHud()
                 if(checkin != nil && checkin!.timeZoneVal != nil && checkin?.ErrorMessage == nil){
-                    self.LblTime.text = checkin?.timeZoneVal;
-                    
+                    self.timeZone = checkin?.timeZoneVal.toDate(format: "+HH:mm");
+                    self.GetTime()
                 }else if(checkin != nil){
                     let info = ["title":"Error",
                                 "message":checkin?.ErrorMessage != nil ? checkin?.ErrorMessage : "error occured"  ,
@@ -110,47 +107,17 @@ class HomeViewController: UIViewController {
         
     }
     
-    func addTimeZonetoCurrentTime()
+    func showTime()
     {
-        
-        let time1 = "02:15:12"
-        let time2 = "+0100"
-        //let time3 = "+01:00"
-        //let time = time1+time2;
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone=TimeZone(abbreviation: "GMT")
-        dateFormatter.dateFormat = "HH:mm:ss"
-        let date:NSDate = dateFormatter.date(from: time1)! as NSDate
-        let str:String=dateFormatter.string(from: date as Date)
-        
-        print(str);
-        
-        //dateFormatter.timeZone=TimeZone(abbreviation: "GMT"+time2)
-        let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateFormat = "HH:mm:sszzz"
-        let str1 = str + time2
-        let date1:NSDate = dateFormatter1.date(from: str1)! as NSDate
-        
-        let dateFormatter3 = DateFormatter()
-        dateFormatter3.dateFormat = "HH:mm:ss"
-        let str2:String=dateFormatter3.string(from: date1 as Date)
-        
-        print(str2);
-        
-        
-        
-        
-        //        let dateFormatter = DateFormatter()
-        //        dateFormatter.timeZone=TimeZone(abbreviation: "GMT")
-        //        dateFormatter.dateFormat = "HH:mm:ss"
-        //        let date:NSDate = dateFormatter.date(from: time1)! as NSDate
-        //
-        //        let dateFormatter1 = DateFormatter()
-        //        dateFormatter1.dateFormat = "HH:mm:ss"
-        //        let str:String=dateFormatter1.string(from: date as Date)
-        //        print(str)
-        
-        
+        let h = (checkInTime?.hour)! + (timeZone?.hour)!;
+        let m = (checkInTime?.minute)! + (timeZone?.minute)!;
+        LblTime.text = String(h) + ":" + String(m) + ":" + checkInTime.ToString(format: "ss");
+        checkInTime = LblTime.text!.toDate(format: "HH:mm:ss");
+    }
+    
+    func clockTimer(){
+        checkInTime = checkInTime.addingTimeInterval(TimeInterval(1));
+        LblTime.text = checkInTime.ToString(format: "HH:mm:ss");
     }
     
     func GetButtonStatus() {

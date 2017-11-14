@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hez-EF-9Mi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hez-EF-9Mi">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -413,13 +413,6 @@
                                     <constraint firstAttribute="trailing" secondItem="2lm-3t-JVP" secondAttribute="trailing" id="f6V-PH-Hk7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaL-Mu-39P">
-                                <rect key="frame" x="168" y="8" width="30" height="34"/>
-                                <state key="normal" image="refresh"/>
-                                <connections>
-                                    <action selector="RefreshClicked:" destination="1Qu-h2-uh4" eventType="touchUpInside" id="EE0-LQ-Ap6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -427,10 +420,8 @@
                             <constraint firstItem="Xwn-kF-SDI" firstAttribute="height" secondItem="zhe-aj-O0L" secondAttribute="height" id="2sg-Xl-Qw9"/>
                             <constraint firstItem="rgs-g2-qXh" firstAttribute="leading" secondItem="l1t-tZ-BNO" secondAttribute="leading" constant="16" id="6Z5-zA-xV7"/>
                             <constraint firstItem="Chf-ES-OID" firstAttribute="leading" secondItem="rgs-g2-qXh" secondAttribute="trailing" constant="20" id="A0Q-0x-cxX"/>
-                            <constraint firstItem="KaL-Mu-39P" firstAttribute="top" secondItem="wTc-bQ-3Xw" secondAttribute="bottom" constant="8" id="BgX-fj-fOh"/>
                             <constraint firstItem="Xwn-kF-SDI" firstAttribute="width" secondItem="zhe-aj-O0L" secondAttribute="width" id="DwQ-a1-Hjb"/>
                             <constraint firstItem="rgs-g2-qXh" firstAttribute="top" secondItem="wTc-bQ-3Xw" secondAttribute="bottom" constant="50" id="GcK-hf-p4z"/>
-                            <constraint firstItem="KaL-Mu-39P" firstAttribute="leading" secondItem="TMl-kg-cty" secondAttribute="trailing" constant="8" id="Hoa-AG-lzW"/>
                             <constraint firstItem="4e1-JP-Ofg" firstAttribute="centerX" secondItem="wxv-jG-Q0v" secondAttribute="centerX" id="KdJ-at-TLQ"/>
                             <constraint firstItem="zhe-aj-O0L" firstAttribute="width" secondItem="zhe-aj-O0L" secondAttribute="height" id="L6e-bH-Kss"/>
                             <constraint firstItem="JNC-gS-RiK" firstAttribute="centerX" secondItem="Chf-ES-OID" secondAttribute="centerX" id="L8i-NG-gTj"/>
@@ -446,7 +437,6 @@
                             <constraint firstItem="zhe-aj-O0L" firstAttribute="top" secondItem="rgs-g2-qXh" secondAttribute="bottom" constant="20" id="aSh-7P-NaH"/>
                             <constraint firstItem="7mi-22-f5O" firstAttribute="centerY" secondItem="rgs-g2-qXh" secondAttribute="centerY" id="abO-gt-Acs"/>
                             <constraint firstItem="zhe-aj-O0L" firstAttribute="leading" secondItem="l1t-tZ-BNO" secondAttribute="leadingMargin" id="bnM-LH-WQU"/>
-                            <constraint firstItem="JNC-gS-RiK" firstAttribute="top" secondItem="KaL-Mu-39P" secondAttribute="bottom" constant="8" id="cYH-N5-3Rm"/>
                             <constraint firstItem="TMl-kg-cty" firstAttribute="centerX" secondItem="l1t-tZ-BNO" secondAttribute="centerX" id="cvh-KG-xbL"/>
                             <constraint firstItem="4e1-JP-Ofg" firstAttribute="width" secondItem="wxv-jG-Q0v" secondAttribute="width" id="dA3-0I-Fuo"/>
                             <constraint firstItem="Chf-ES-OID" firstAttribute="top" secondItem="wTc-bQ-3Xw" secondAttribute="bottom" constant="50" id="fXO-SN-pha"/>
@@ -685,7 +675,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-T4-5G9">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-T4-5G9">
                                                             <rect key="frame" x="68" y="50.5" width="175" height="37.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
@@ -888,7 +878,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="260" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7O-35-SnC" id="M7E-C1-iO5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pu-rg-ifN">
@@ -1255,7 +1245,6 @@
         <image name="check_out" width="96" height="96"/>
         <image name="logs_icon" width="128" height="128"/>
         <image name="menu" width="32" height="32"/>
-        <image name="refresh" width="30" height="30"/>
         <image name="rollcall" width="512" height="512"/>
         <image name="search" width="16" height="16"/>
     </resources>
