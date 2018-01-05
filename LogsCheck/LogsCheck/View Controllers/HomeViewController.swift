@@ -130,7 +130,7 @@ class HomeViewController: UIViewController {
                     self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
                     self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
                     self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
-                    self.CheckOutVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.red : UIColor.darkGray;
+                    self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
                 }else if(checkin != nil){
                     let info = ["title":"Error",
                                 "message":checkin?.ErrorMessage,
@@ -201,7 +201,7 @@ class HomeViewController: UIViewController {
                                                 self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
                                                 self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
                                                 self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
-                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.red : UIColor.darkGray;
+                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
                                                 Utility.showToast(text: (checkin?.msg)!)
                                             }else if(checkin != nil){
                                                 let info = ["title":"Error",
@@ -232,7 +232,7 @@ class HomeViewController: UIViewController {
                                                 self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
                                                 self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
                                                 self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
-                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.red : UIColor.darkGray;
+                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
                                                 Utility.showToast(text: (checkin?.msg)!)
                                             }else if(checkin != nil){
                                                 let info = ["title":"Error",
