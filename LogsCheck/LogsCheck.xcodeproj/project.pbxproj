@@ -44,17 +44,16 @@
 		26865ACF1F7F8B26001BFE5B /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26865ACE1F7F8B26001BFE5B /* LogsViewController.swift */; };
 		268CE19D1F7FF4CD009C59F8 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CE19C1F7FF4CD009C59F8 /* BaseModel.swift */; };
 		268CE19F1F7FFB79009C59F8 /* UserDeafults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CE19E1F7FFB79009C59F8 /* UserDeafults.swift */; };
+		2693A0F520A0A1DC0062FA6C /* TermAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693A0F420A0A1DC0062FA6C /* TermAndConditionsViewController.swift */; };
 		26AFA1971F6E8D59009F7439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1961F6E8D59009F7439 /* AppDelegate.swift */; };
 		26AFA19C1F6E8D59009F7439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AFA19A1F6E8D59009F7439 /* Main.storyboard */; };
 		26AFA19E1F6E8D59009F7439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AFA19D1F6E8D59009F7439 /* Assets.xcassets */; };
 		26AFA1A11F6E8D59009F7439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AFA19F1F6E8D59009F7439 /* LaunchScreen.storyboard */; };
 		26AFA1CA1F6E8FFF009F7439 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */; };
 		26AFA1CF1F6E9321009F7439 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */; };
-		2A11EA01EBB7B19DAA75458F /* Pods_LogsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogsCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E858A81FA892EF00ACD225 /* CompanyZoneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyZoneModel.swift; sourceTree = "<group>"; };
 		18E858AA1FA8941B00ACD225 /* CompanyZoneResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyZoneResponseModel.swift; sourceTree = "<group>"; };
 		26312F5A1F817996001907F4 /* ServerTimeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTimeResponseModel.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		26865ACE1F7F8B26001BFE5B /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		268CE19C1F7FF4CD009C59F8 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		268CE19E1F7FFB79009C59F8 /* UserDeafults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeafults.swift; sourceTree = "<group>"; };
+		2693A0F420A0A1DC0062FA6C /* TermAndConditionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermAndConditionsViewController.swift; sourceTree = "<group>"; };
 		26AFA1931F6E8D59009F7439 /* LogsCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogsCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26AFA1961F6E8D59009F7439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26AFA19B1F6E8D59009F7439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A11EA01EBB7B19DAA75458F /* Pods_LogsCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +236,7 @@
 				26865ACC1F7F8B19001BFE5B /* SettingsViewController.swift */,
 				26865ACE1F7F8B26001BFE5B /* LogsViewController.swift */,
 				26312F751F8232DD001907F4 /* SelectTerminalsViewController.swift */,
+				2693A0F420A0A1DC0062FA6C /* TermAndConditionsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -283,7 +283,6 @@
 		2F150E976947F0D42C825670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				06B8F05E368F6698EC545949 /* Pods_LogsCheck.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,7 +326,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Akash Deep Kaushik";
 				TargetAttributes = {
 					26AFA1921F6E8D59009F7439 = {
@@ -450,6 +449,7 @@
 				26312F7A1F823780001907F4 /* RollCallCell.swift in Sources */,
 				26312F681F818D3D001907F4 /* DateComponents+Utilities.swift in Sources */,
 				26312F721F81A149001907F4 /* LogModel.swift in Sources */,
+				2693A0F520A0A1DC0062FA6C /* TermAndConditionsViewController.swift in Sources */,
 				267001731F7C06920002DC40 /* TPKeyboardAvoidingTableView.m in Sources */,
 				26865ACF1F7F8B26001BFE5B /* LogsViewController.swift in Sources */,
 				26312F6C1F81A086001907F4 /* LogsResponseModel.swift in Sources */,
@@ -504,15 +504,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -555,15 +563,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

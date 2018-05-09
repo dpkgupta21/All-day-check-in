@@ -80,11 +80,18 @@ class SelectTerminalsViewController: UIViewController, UITableViewDelegate, UITa
                 Terminals = Terminals != nil ? Terminals + ",\(item.TerminalID!)" : "\(item.TerminalID!)"
             }
         }
-        
-        if(delegate != nil){
-            delegate.OkClicked(terminal: Terminals)
+        if(Terminals != nil){
+            
+            if(delegate != nil){
+                delegate.OkClicked(terminal: Terminals)
+            }
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            let info = ["title":"Error",
+                        "message":"Please select a terminal first",
+                        "cancel":"Ok"]
+            Utility.showAlertWithInfo(infoDic: info as NSDictionary)
         }
-        self.dismiss(animated: true, completion: nil)
     }
     
     

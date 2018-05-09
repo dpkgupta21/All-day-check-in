@@ -167,9 +167,18 @@
                                                     <action selector="BtnLoginlClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="akr-NH-VIY"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sny-pc-LyQ">
+                                                <rect key="frame" x="16" y="384" width="288" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <state key="normal" title="Terms and Conditions"/>
+                                                <connections>
+                                                    <segue destination="i54-aL-6Zg" kind="show" id="L0B-bG-OP3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Sny-pc-LyQ" secondAttribute="bottom" constant="8" id="0JZ-Oa-O93"/>
                                             <constraint firstItem="xUw-sH-JEF" firstAttribute="width" secondItem="yt9-ju-8qb" secondAttribute="width" id="4Hs-Bu-efy"/>
                                             <constraint firstItem="NRc-se-OQh" firstAttribute="leading" secondItem="tXB-Tz-2gI" secondAttribute="leading" constant="8" id="63u-Dz-aP7"/>
                                             <constraint firstItem="NRc-se-OQh" firstAttribute="bottom" secondItem="tXB-Tz-2gI" secondAttribute="centerY" id="6If-ZY-nKL"/>
@@ -177,8 +186,10 @@
                                             <constraint firstAttribute="trailing" secondItem="yt9-ju-8qb" secondAttribute="trailing" constant="16" id="Cfs-xC-I88"/>
                                             <constraint firstAttribute="trailing" secondItem="Xu2-g3-C5A" secondAttribute="trailing" constant="16" id="H4v-eB-dyh"/>
                                             <constraint firstItem="Xu2-g3-C5A" firstAttribute="top" secondItem="yt9-ju-8qb" secondAttribute="bottom" constant="8" id="OcM-Q3-Xa0"/>
+                                            <constraint firstItem="Sny-pc-LyQ" firstAttribute="leading" secondItem="tXB-Tz-2gI" secondAttribute="leading" constant="16" id="PJz-N9-ci7"/>
                                             <constraint firstItem="xUw-sH-JEF" firstAttribute="leading" secondItem="tXB-Tz-2gI" secondAttribute="leading" constant="16" id="R9F-M4-ab9"/>
                                             <constraint firstItem="yQ7-9S-Hgn" firstAttribute="leading" secondItem="tXB-Tz-2gI" secondAttribute="leading" constant="16" id="RR4-6e-BHx"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sny-pc-LyQ" secondAttribute="trailing" constant="16" id="Yq7-ls-yKA"/>
                                             <constraint firstItem="xUw-sH-JEF" firstAttribute="top" secondItem="NRc-se-OQh" secondAttribute="bottom" constant="8" id="ZzZ-KK-ZXy"/>
                                             <constraint firstItem="yt9-ju-8qb" firstAttribute="height" secondItem="xUw-sH-JEF" secondAttribute="height" id="chg-WI-GX0"/>
                                             <constraint firstItem="Xu2-g3-C5A" firstAttribute="leading" secondItem="tXB-Tz-2gI" secondAttribute="leading" constant="16" id="h1q-ni-9Yb"/>
@@ -219,7 +230,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="110"/>
+            <point key="canvasLocation" x="86.25" y="110"/>
+        </scene>
+        <!--Term And Conditions View Controller-->
+        <scene sceneID="rYA-aI-PR5">
+            <objects>
+                <viewController id="i54-aL-6Zg" customClass="TermAndConditionsViewController" customModule="LogsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1aa-D6-E2X"/>
+                        <viewControllerLayoutGuide type="bottom" id="ujX-a0-UXr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rqx-Gw-rWB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-3m-5OM">
+                                <rect key="frame" x="72" y="158" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anZ-bW-yaJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5LR-jH-i92">
+                                <rect key="frame" x="142" y="190" width="37" height="37"/>
+                                <color key="color" red="0.046072565019130707" green="0.24599337577819824" blue="0.4536060094833374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="anZ-bW-yaJ" firstAttribute="leading" secondItem="Rqx-Gw-rWB" secondAttribute="leading" id="m9P-yg-tLY"/>
+                            <constraint firstItem="5LR-jH-i92" firstAttribute="centerX" secondItem="anZ-bW-yaJ" secondAttribute="centerX" id="onD-TE-sPP"/>
+                            <constraint firstItem="ujX-a0-UXr" firstAttribute="top" secondItem="anZ-bW-yaJ" secondAttribute="bottom" id="sBY-cH-9wp"/>
+                            <constraint firstItem="5LR-jH-i92" firstAttribute="centerY" secondItem="anZ-bW-yaJ" secondAttribute="centerY" id="vlw-EH-MoC"/>
+                            <constraint firstAttribute="trailing" secondItem="anZ-bW-yaJ" secondAttribute="trailing" id="vpE-6l-3xJ"/>
+                            <constraint firstItem="anZ-bW-yaJ" firstAttribute="top" secondItem="1aa-D6-E2X" secondAttribute="bottom" id="zF4-Zt-Os6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="WebVW" destination="anZ-bW-yaJ" id="vRP-vz-Xqe"/>
+                        <outlet property="actIndicator" destination="5LR-jH-i92" id="vsM-dy-yJn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcn-dB-rin" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84.375" y="915"/>
         </scene>
         <!--Home-->
         <scene sceneID="qRM-Ai-uw9">

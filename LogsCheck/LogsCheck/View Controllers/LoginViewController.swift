@@ -83,6 +83,8 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func TCClicked(_ sender: Any) {
+    }
     
     @IBAction func ShowPasswordClicked(_ sender: Any) {
         BtnShowPassword.isSelected = !BtnShowPassword.isSelected;

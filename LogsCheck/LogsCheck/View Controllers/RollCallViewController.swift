@@ -25,7 +25,7 @@ class RollCallViewController: UIViewController , UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let viewController  =     self.storyboard!.instantiateViewController(withIdentifier: "SelectTerminalsViewController") as! SelectTerminalsViewController
+        let viewController  =  self.storyboard!.instantiateViewController(withIdentifier: "SelectTerminalsViewController") as! SelectTerminalsViewController
         viewController.providesPresentationContextTransitionStyle = true
         viewController.definesPresentationContext = true
         viewController.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext

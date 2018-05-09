@@ -31,7 +31,7 @@ let kTNLDebugLevel2:Bool = true  // Show debug level NSLOG
 let kTNLDebugLevel3:Bool = true  // Show debug level NSLOG
 let kTNLDebugError:Bool  = true   // Show error NSLOG
 
-let baseURL = "http://webmanager.alldaytime.co.uk/api/BasicAction/";
+let baseURL = "https://atsmapi.alldaytime.co.uk/api/BasicAction/";
 let token = "?token=NixpkcMC4gKP3OIQA8hBJqv1ByZ4c+ffMYLb5mfDwFeWEQ7XEReLXA=="
 
 let METHOD_LOGIN = "AuthenticateUser"
@@ -71,9 +71,9 @@ class WebserviceCommunication: NSObject,URLSessionDownloadDelegate,URLSessionTas
             
             let requestURL = baseURL + methodName + token
             
-            let url = NSURL(string: requestURL)
+            let url = URL(string: requestURL)
             
-            let request = NSMutableURLRequest(url: url! as URL, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: timeInterval)
+            let request = NSMutableURLRequest(url: url!, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: timeInterval)
             
             request.httpMethod = "POST"
             request.addValue("application/xml", forHTTPHeaderField: "Content-Type")
