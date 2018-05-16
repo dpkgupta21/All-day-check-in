@@ -32,6 +32,8 @@ class HomeViewController: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         GetButtonStatus()
         GetCompanyTimeZone()
+        NotificationCenter.default.addObserver(self, selector: #selector(GetTime), name: .UIApplicationDidBecomeActive, object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,11 +41,14 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        
         timer.invalidate()
     }
     
     func runTimer() {
+        if(timer != nil){
+            timer.invalidate()
+            timer = nil
+        }
         timer = Timer.scheduledTimer(timeInterval: 60*30, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
         
     }
@@ -52,7 +57,7 @@ class HomeViewController: UIViewController {
         GetButtonStatus()
     }
     
-    func GetTime() {
+    @objc func GetTime() {
         
         Utility.showProgressHud(text: "")
         ServerTimeResponseModel.FetchTime(callback: { (checkin, error) in
@@ -62,6 +67,10 @@ class HomeViewController: UIViewController {
                 if(checkin != nil && checkin!.time != nil && checkin?.ErrorMessage == nil){
                     self.checkInTime = checkin?.time!;
                     self.showTime()
+                    if(self.clocktimer != nil){
+                        self.clocktimer.invalidate()
+                    }
+                    
                     self.clocktimer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(self.clockTimer)), userInfo: nil, repeats: true)
                 }else if(checkin != nil){
                     let info = ["title":"Error",
@@ -108,11 +117,12 @@ class HomeViewController: UIViewController {
     }
     
     func showTime()
-    {
-        let h = (checkInTime?.hour)! + (timeZone?.hour)!;
-        let m = (checkInTime?.minute)! + (timeZone?.minute)!;
-        LblTime.text = String(h) + ":" + String(m) + ":" + checkInTime.ToString(format: "ss");
-        checkInTime = LblTime.text!.toDate(format: "HH:mm:ss");
+    { DispatchQueue.main.async {
+        let h = (self.checkInTime?.hour)! + (self.timeZone?.hour)!;
+        let m = (self.checkInTime?.minute)! + (self.timeZone?.minute)!;
+        self.LblTime.text = String(h) + ":" + String(m) + ":" + self.checkInTime.ToString(format: "ss");
+        self.checkInTime = self.LblTime.text!.toDate(format: "HH:mm:ss");
+        }
     }
     
     func clockTimer(){
@@ -189,6 +199,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func BtnCheckInClicked(_ sender: Any) {
+//        if(locationManager.location.a)
         Utility.showProgressHud(text: "")
         CheckInResponseModel.CheckIn(status: "IN",
                                      lat: String(describing: locationManager.location!.coordinate.latitude),

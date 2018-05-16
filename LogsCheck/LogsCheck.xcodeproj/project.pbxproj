@@ -51,6 +51,7 @@
 		26AFA1A11F6E8D59009F7439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AFA19F1F6E8D59009F7439 /* LaunchScreen.storyboard */; };
 		26AFA1CA1F6E8FFF009F7439 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */; };
 		26AFA1CF1F6E9321009F7439 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */; };
+		856292AC614DEEFC573DECC8 /* Pods_LogsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D7FF06862F8682FE4E174C /* Pods_LogsCheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		580E433FB24443F6B2C8E897 /* Pods-LogsCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogsCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck.release.xcconfig"; sourceTree = "<group>"; };
 		A76D4600D5E914017849EF31 /* Pods-LogsCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogsCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		E7D7FF06862F8682FE4E174C /* Pods_LogsCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogsCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856292AC614DEEFC573DECC8 /* Pods_LogsCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +286,7 @@
 		2F150E976947F0D42C825670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7D7FF06862F8682FE4E174C /* Pods_LogsCheck.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,7 +312,6 @@
 				26AFA1901F6E8D59009F7439 /* Frameworks */,
 				26AFA1911F6E8D59009F7439 /* Resources */,
 				B6BD597A582B1F6E01662B00 /* [CP] Embed Pods Frameworks */,
-				5D74DB775EB20BFE38D7A341 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,21 +371,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D74DB775EB20BFE38D7A341 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		ABD8BD76630C71663BE71F45 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
