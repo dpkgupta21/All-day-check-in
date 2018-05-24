@@ -20,7 +20,13 @@ class ServerTimeResponseModel: BaseModel {
             let xmlDoc = try? AEXMLDocument(xml: xml)
             let result = xmlDoc?.root["ResultDoc"]
             if(result?.value != nil){
-                time = result?.value?.toTime()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
+                let strDate = result?.value
+                let endIndex = strDate?.index((strDate?.endIndex)!, offsetBy: -6)
+                var truncated = strDate?.substring(to: endIndex!)
+                truncated! += "+00:00"
+                time = dateFormatter.date(from: truncated!)//result?.value?.toTime()
             }
             
         }catch {

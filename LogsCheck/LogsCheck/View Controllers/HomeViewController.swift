@@ -199,69 +199,109 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func BtnCheckInClicked(_ sender: Any) {
-//        if(locationManager.location.a)
-        Utility.showProgressHud(text: "")
-        CheckInResponseModel.CheckIn(status: "IN",
-                                     lat: String(describing: locationManager.location!.coordinate.latitude),
-                                     lang: String(describing: locationManager.location!.coordinate.longitude),
-                                     callback: { (checkin, error) in
-                                        
-                                        DispatchQueue.main.async {
-                                            Utility.hideProgressHud()
-                                            if(checkin != nil && checkin?.ErrorMessage == nil){
-                                                self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
-                                                self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
-                                                self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
-                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
-                                                Utility.showToast(text: (checkin?.msg)!)
-                                            }else if(checkin != nil){
-                                                let info = ["title":"Error",
-                                                            "message":checkin?.ErrorMessage,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                            }else{
-                                                let info = ["title":"Error",
-                                                            "message":error,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+        if checkLocEnable() == true{
+            Utility.showProgressHud(text: "")
+            CheckInResponseModel.CheckIn(status: "IN",
+                                         lat: String(describing: locationManager.location!.coordinate.latitude),
+                                         lang: String(describing: locationManager.location!.coordinate.longitude),
+                                         callback: { (checkin, error) in
+                                            
+                                            DispatchQueue.main.async {
+                                                Utility.hideProgressHud()
+                                                if(checkin != nil && checkin?.ErrorMessage == nil){
+                                                    self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
+                                                    self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
+                                                    self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
+                                                    self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
+                                                    Utility.showToast(text: (checkin?.msg)!)
+                                                }else if(checkin != nil){
+                                                    let info = ["title":"Error",
+                                                                "message":checkin?.ErrorMessage,
+                                                                "cancel":"Ok"]
+                                                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                                                }else{
+                                                    let info = ["title":"Error",
+                                                                "message":error,
+                                                                "cancel":"Ok"]
+                                                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                                                }
                                             }
-                                        }
-        })
-        
+            })
+        }
     }
     
+    
     @IBAction func BtnCheckOutClicked(_ sender: Any) {
-        Utility.showProgressHud(text: "")
-        CheckInResponseModel.CheckIn(status: "OUT",
-                                     lat: String(describing: locationManager.location!.coordinate.latitude),
-                                     lang: String(describing: locationManager.location!.coordinate.longitude),
-                                     callback: { (checkin, error) in
-                                        
-                                        DispatchQueue.main.async {
-                                            Utility.hideProgressHud()
-                                            if(checkin != nil && checkin?.ErrorMessage == nil){
-                                                self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
-                                                self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
-                                                self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
-                                                self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
-                                                Utility.showToast(text: (checkin?.msg)!)
-                                            }else if(checkin != nil){
-                                                let info = ["title":"Error",
-                                                            "message":checkin?.ErrorMessage,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                                            }else{
-                                                let info = ["title":"Error",
-                                                            "message":error,
-                                                            "cancel":"Ok"]
-                                                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+        if checkLocEnable() == true{
+            Utility.showProgressHud(text: "")
+            CheckInResponseModel.CheckIn(status: "OUT",
+                                         lat: String(describing: locationManager.location!.coordinate.latitude),
+                                         lang: String(describing: locationManager.location!.coordinate.longitude),
+                                         callback: { (checkin, error) in
+                                            
+                                            DispatchQueue.main.async {
+                                                Utility.hideProgressHud()
+                                                if(checkin != nil && checkin?.ErrorMessage == nil){
+                                                    self.BtnCheckIn.isEnabled = (checkin?.showCheckIn)!
+                                                    self.BtnCheckOut.isEnabled = (checkin?.showCheckout)!
+                                                    self.CheckInVw.backgroundColor = (checkin?.showCheckIn)! ? UIColor.init(red: 0, green: 0.5, blue: 0, alpha: 1):UIColor.darkGray;
+                                                    self.CheckOutVw.backgroundColor = (checkin?.showCheckout)! ? UIColor.red : UIColor.darkGray;
+                                                    Utility.showToast(text: (checkin?.msg)!)
+                                                }else if(checkin != nil){
+                                                    let info = ["title":"Error",
+                                                                "message":checkin?.ErrorMessage,
+                                                                "cancel":"Ok"]
+                                                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                                                }else{
+                                                    let info = ["title":"Error",
+                                                                "message":error,
+                                                                "cancel":"Ok"]
+                                                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                                                }
                                             }
-                                        }
-        })
-        
+            })
+        }
     }
     
     @IBAction func BtnRollOutClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "RollCallSegue", sender: self)
+    }
+    
+    func checkLocEnable()->Bool{
+        //check if location services are enabled at all
+        if CLLocationManager.locationServicesEnabled() {
+            
+            switch(CLLocationManager.authorizationStatus()) {
+            //check if services disallowed for this app particularly
+            case .restricted, .denied:
+                print("No access")
+                let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
+                    
+                }))
+                present(accessAlert, animated: true, completion: nil)
+                return false
+                
+            //check if services are allowed for this app
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access! We're good to go!")
+                return true
+            //check if we need to ask for access
+            case .notDetermined:
+                print("asking for access...")
+                locationManager.requestAlwaysAuthorization()
+                return true
+            }
+            //location services are disabled on the device entirely!
+        } else {
+            print("Location services are not enabled")
+            return false
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }

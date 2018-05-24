@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var BtnLogin: UIButton!
     @IBOutlet weak var TxtPassword: UITextField!
@@ -17,19 +17,74 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var ImgLogo: UIImageView!
     @IBOutlet weak var BtnForgotPassword: UIButton!
     @IBOutlet weak var BtnShowPassword: UIButton!
-    var locationManager: CLLocationManager!
+    var locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.TxtUserName.text = UserDeafultsManager.SharedDefaults.Username
         self.TxtPassword.text = UserDeafultsManager.SharedDefaults.Password
-        locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-        if (UserDeafultsManager.SharedDefaults.IsLoggedIn){
-            self.performSegue(withIdentifier: "LoginSegue", sender: self);
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if checkLocEnable() == true {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }else{
+            let alertController = UIAlertController(title: "Location Services Disabled", message: "Please enable location services for this app.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default,
+                                         handler: { (alert: UIAlertAction!) in
+                                            print("")
+                                            UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
+            })
+            alertController.addAction(OKAction)
+            OperationQueue.main.addOperation {
+                self.present(alertController, animated: true,
+                             completion:nil)
+            }
         }
-        
-        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func checkLocEnable()->Bool{
+        //check if location services are enabled at all
+        if CLLocationManager.locationServicesEnabled() {
+            
+            switch(CLLocationManager.authorizationStatus()) {
+            //check if services disallowed for this app particularly
+            case .restricted, .denied:
+                print("No access")
+                let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
+                    
+                }))
+                present(accessAlert, animated: true, completion: nil)
+                return false
+                
+            //check if services are allowed for this app
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access! We're good to go!")
+                return true
+            //check if we need to ask for access
+            case .notDetermined:
+                print("asking for access...")
+                locationManager.requestAlwaysAuthorization()
+                return true
+            }
+            //location services are disabled on the device entirely!
+        } else {
+            print("Location services are not enabled")
+            return false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,36 +101,44 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func BtnLoginlClicked(_ sender: Any) {
-        Utility.showProgressHud(text: "")
-        LoginResponseModel.Login(username: TxtUserName.text!,
-                                 password: TxtPassword.text!)
-        { (user, error) in
-            DispatchQueue.main.async {
-                Utility.hideProgressHud()
-                if(user != nil && user?.ErrorMessage == nil){
-                    UserDeafultsManager.SharedDefaults.IsLoggedIn = true
-                    UserDeafultsManager.SharedDefaults.CompanyID = String(user!.CompanyID);
-                    UserDeafultsManager.SharedDefaults.MemberID = String(user!.EmployeeID);
-                    UserDeafultsManager.SharedDefaults.Username = user!.Email
-                    UserDeafultsManager.SharedDefaults.Password = user!.Password
-                    UserDeafultsManager.SharedDefaults.FirstName = user!.FirstName
-                    UserDeafultsManager.SharedDefaults.LastName = user!.LastName
-                    
-                                        
-                    self.performSegue(withIdentifier: "LoginSegue", sender: self);
-                }else if(user != nil){
-                    let info = ["title":"Error",
-                                "message":user?.ErrorMessage,
-                                "cancel":"Ok"]
-                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
-                }else{
-                    let info = ["title":"Error",
-                                "message":error,
-                                "cancel":"Ok"]
-                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+        if (TxtUserName.text?.isEmpty)! || (TxtPassword.text?.isEmpty)! {
+            let info = ["title":"Invalid Information",
+                        "message":"Please enter correct user name and password",
+                        "cancel":"Ok"]
+            Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+        }else{
+            Utility.showProgressHud(text: "")
+            LoginResponseModel.Login(username: TxtUserName.text!,
+                                     password: TxtPassword.text!)
+            { (user, error) in
+                DispatchQueue.main.async {
+                    Utility.hideProgressHud()
+                    if(user != nil && user?.ErrorMessage == nil){
+                        UserDeafultsManager.SharedDefaults.IsLoggedIn = true
+                        UserDeafultsManager.SharedDefaults.CompanyID = String(user!.CompanyID);
+                        UserDeafultsManager.SharedDefaults.MemberID = String(user!.EmployeeID);
+                        UserDeafultsManager.SharedDefaults.Username = user!.Email
+                        UserDeafultsManager.SharedDefaults.Password = user!.Password
+                        UserDeafultsManager.SharedDefaults.FirstName = user!.FirstName
+                        UserDeafultsManager.SharedDefaults.LastName = user!.LastName
+                        
+                        
+                        self.performSegue(withIdentifier: "LoginSegue", sender: self);
+                    }else if(user != nil){
+                        let info = ["title":"Error",
+                                    "message":user?.ErrorMessage,
+                                    "cancel":"Ok"]
+                        Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                    }else{
+                        let info = ["title":"Error",
+                                    "message":error,
+                                    "cancel":"Ok"]
+                        Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                    }
                 }
             }
         }
+        
         //         self.performSegue(withIdentifier: "LoginSegue", sender: self);
     }
     
