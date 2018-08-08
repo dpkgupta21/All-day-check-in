@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var LblTime: UILabel!
     @IBOutlet weak var CheckOutVw: UIView!
@@ -19,12 +19,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var BtnCheckOut: UIButton!
     @IBOutlet weak var BtnCheckIn: UIButton!
     
+    @IBOutlet weak var RollCallVw: UIView!
     
     var locationManager: CLLocationManager!
     var menu : UIAlertController!
     var timer : Timer!
     var clocktimer : Timer!
     var checkInTime : Date!
+    var strHours: String!
+    var strMinutes: String!
+    var strSeconds: String!
     var timeZone : Date!
     
     override func viewDidLoad() {
@@ -65,7 +69,11 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 Utility.hideProgressHud()
                 if(checkin != nil && checkin!.time != nil && checkin?.ErrorMessage == nil){
+                    //Set values from Fetch Time
                     self.checkInTime = checkin?.time!;
+                    self.strHours = checkin?.strHours;
+                    self.strMinutes = checkin?.strMins;
+                    self.strSeconds = checkin?.strSec;
                     self.showTime()
                     if(self.clocktimer != nil){
                         self.clocktimer.invalidate()
@@ -117,11 +125,18 @@ class HomeViewController: UIViewController {
     }
     
     func showTime()
-    { DispatchQueue.main.async {
-        let h = (self.checkInTime?.hour)! + (self.timeZone?.hour)!;
-        let m = (self.checkInTime?.minute)! + (self.timeZone?.minute)!;
-        self.LblTime.text = String(h) + ":" + String(m) + ":" + self.checkInTime.ToString(format: "ss");
-        self.checkInTime = self.LblTime.text!.toDate(format: "HH:mm:ss");
+    {
+        DispatchQueue.main.async {
+        let h = self.strHours;
+        let m = self.strMinutes;
+        let s = self.strSeconds;
+        print("Show Time is  ", h!,":",m!, ":" , s!)
+        self.LblTime.text = String(h!) + ":" + String(m!) + ":" + String(s!);
+            
+//        self.checkInTime = self.LblTime.text!.toDate(format: "HH:mm:ss");
+            
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         }
     }
     
@@ -270,12 +285,14 @@ class HomeViewController: UIViewController {
     func checkLocEnable()->Bool{
         //check if location services are enabled at all
         if CLLocationManager.locationServicesEnabled() {
-            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
             switch(CLLocationManager.authorizationStatus()) {
             //check if services disallowed for this app particularly
             case .restricted, .denied:
                 print("No access")
-                let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertControllerStyle.alert)
+                let accessAlert = UIAlertController(title: "Location Services Disabled", message: "We can not take in or out time without location services (GPS) working.", preferredStyle: UIAlertControllerStyle.alert)
                 
                 accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
                     

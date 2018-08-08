@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var BtnSubmit: UIButton!
     @IBOutlet weak var TxtPassword: UITextField!
@@ -18,6 +18,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         TxtPassword.text = UserDeafultsManager.SharedDefaults.Password
         TxtUserName.text = UserDeafultsManager.SharedDefaults.Username
+        
+        TxtPassword.delegate = self
+        TxtUserName.delegate = self
+        
+        TxtPassword.returnKeyType = .done
+        TxtUserName.returnKeyType = .done
     }
     
     @IBAction func BtnSubmitClicked(_ sender: Any) {
@@ -25,5 +31,16 @@ class SettingsViewController: UIViewController {
         UserDeafultsManager.SharedDefaults.Password = TxtPassword.text ?? ""
         UserDeafultsManager.SharedDefaults.Username = TxtUserName.text ?? ""
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //Hide Keyboard when User click outside text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) //This will hide the keyboard
     }
 }

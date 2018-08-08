@@ -37,7 +37,6 @@
 		267001771F7C08530002DC40 /* WebserviceCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267001761F7C08530002DC40 /* WebserviceCommunication.swift */; };
 		2670017A1F7C08910002DC40 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267001791F7C08910002DC40 /* Utility.swift */; };
 		267C8BEF1F7EF91800EECE06 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C8BEE1F7EF91800EECE06 /* XMLParser.swift */; };
-		267C8BF11F7F066F00EECE06 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C8BF01F7F066F00EECE06 /* LoginResponseModel.swift */; };
 		267C8BF31F7F0AD500EECE06 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C8BF21F7F0AD500EECE06 /* StringExtension.swift */; };
 		26865ACB1F7F8733001BFE5B /* RollCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26865ACA1F7F8733001BFE5B /* RollCallViewController.swift */; };
 		26865ACD1F7F8B19001BFE5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26865ACC1F7F8B19001BFE5B /* SettingsViewController.swift */; };
@@ -426,7 +425,6 @@
 				267001771F7C08530002DC40 /* WebserviceCommunication.swift in Sources */,
 				266278061F84003A0085AE2B /* CheckBtnStatusResponseModel.swift in Sources */,
 				18E858A91FA892EF00ACD225 /* CompanyZoneModel.swift in Sources */,
-				267C8BF11F7F066F00EECE06 /* LoginResponseModel.swift in Sources */,
 				26312F641F818D3D001907F4 /* Calendar+Utilities.swift in Sources */,
 				26312F701F81A0B2001907F4 /* RollCallResonseModel.swift in Sources */,
 				26312F7C1F8267FE001907F4 /* TerminalModel.swift in Sources */,
@@ -512,7 +510,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -571,7 +570,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -598,6 +598,7 @@
 			baseConfigurationReference = A76D4600D5E914017849EF31 /* Pods-LogsCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BJF5354GZ6;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
@@ -617,6 +618,7 @@
 			baseConfigurationReference = 580E433FB24443F6B2C8E897 /* Pods-LogsCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = BJF5354GZ6;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
