@@ -63,6 +63,7 @@ class LoginResponseModel: BaseModel {
                 ISEmailVerified = result?["ISEmailVerified"].value?.toBool()
                 ISInvited = result?["ISInvited"].value?.toBool()
                 ClockCardProEnabled = result?["ClockCardProEnabled"].value?.toInt()
+                
             }
             
         }catch {
