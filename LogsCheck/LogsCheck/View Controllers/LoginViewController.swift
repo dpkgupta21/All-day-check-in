@@ -121,7 +121,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                         UserDeafultsManager.SharedDefaults.Password = user!.Password
                         UserDeafultsManager.SharedDefaults.FirstName = user!.FirstName
                         UserDeafultsManager.SharedDefaults.LastName = user!.LastName
-                        
+                        UserDeafultsManager.SharedDefaults.IsRollCallAllowed = user!.ISRollCallAllowed
                         
                         self.performSegue(withIdentifier: "LoginSegue", sender: self);
                     }else if(user != nil){

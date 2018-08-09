@@ -147,6 +147,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     func GetButtonStatus() {
         Utility.showProgressHud(text: "")
+        
+        //Roll Call Button Set Up
+        let flagRollCall  = UserDeafultsManager.SharedDefaults.IsRollCallAllowed
+        self.BtnRollOut.isEnabled = flagRollCall
+        self.RollCallVw.backgroundColor = flagRollCall ? UIColor(red: 184.0/255.0, green: 24.0/255.0, blue: 29.0/255.0, alpha: 1.0) :UIColor.darkGray;
+        
         CheckBtnStatusResponseModel.GetStatus(callback: { (checkin, error) in
             
             DispatchQueue.main.async {
@@ -174,7 +180,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func BtnRefreshClicked(_ sender: Any) {
         GetButtonStatus()
     }
-    
     
     @IBAction func MenuClicked(_ sender: Any) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)

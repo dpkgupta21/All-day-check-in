@@ -25,7 +25,7 @@ class UserDeafultsManager: NSObject {
     let PasswordKey = "PasswordKey"
     let FirstNameKey = "FirstNameKey"
     let LastNameKey = "LastNameKey"
-    
+    let IsRollCallKey = "IsRollCallAllowed"
     
     
     var IsLoggedIn : Bool{
@@ -95,6 +95,15 @@ class UserDeafultsManager: NSObject {
             UserDefaults.standard.set(value, forKey: LastNameKey)
         }
         
+    }
+    
+    var IsRollCallAllowed : Bool{
+        get{
+            return UserDefaults.standard.bool(forKey: IsRollCallKey)
+        }
+        set (value){
+            UserDefaults.standard.set(value, forKey: IsRollCallKey)
+        }
     }
     
 

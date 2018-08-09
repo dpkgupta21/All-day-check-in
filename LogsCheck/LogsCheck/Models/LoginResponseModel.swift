@@ -33,6 +33,7 @@ class LoginResponseModel: BaseModel {
     var ISEmailVerified : Bool!
     var ISInvited :Bool!
     var ClockCardProEnabled :Int!
+    var ISRollCallAllowed : Bool!
     
     
     override init(xml:Data) {
@@ -63,7 +64,7 @@ class LoginResponseModel: BaseModel {
                 ISEmailVerified = result?["ISEmailVerified"].value?.toBool()
                 ISInvited = result?["ISInvited"].value?.toBool()
                 ClockCardProEnabled = result?["ClockCardProEnabled"].value?.toInt()
-                
+                ISRollCallAllowed = result?["ISRollCallAllowed"].value?.toBool()
             }
             
         }catch {
