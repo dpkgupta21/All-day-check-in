@@ -103,6 +103,7 @@ public class Utility{
             UIApplication.shared.keyWindow?.addSubview(hud)
             hud.removeFromSuperViewOnHide = true;
             hud.label.text = text
+            hud.label.numberOfLines=2
             hud.show(animated: true)
             hud.hide(animated: true, afterDelay: 3)
             
