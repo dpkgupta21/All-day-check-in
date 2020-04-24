@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         GetButtonStatus()
     }
     
@@ -140,7 +140,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func clockTimer(){
+    @objc func clockTimer(){
         checkInTime = checkInTime.addingTimeInterval(TimeInterval(1));
         LblTime.text = checkInTime.ToString(format: "HH:mm:ss");
     }
@@ -222,8 +222,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         if checkLocEnable() == true{
             Utility.showProgressHud(text: "")
             CheckInResponseModel.CheckIn(status: "IN",
-                                         lat: String(describing: locationManager.location!.coordinate.latitude),
-                                         lang: String(describing: locationManager.location!.coordinate.longitude),
+                                         lat: String(describing: 0.00),
+                                         lang: String(describing: 0.00),
+//                                         lat: String(describing: locationManager.location!.coordinate.latitude),
+//                                         lang: String(describing: locationManager.location!.coordinate.longitude),
                                          callback: { (checkin, error) in
                                             
                                             DispatchQueue.main.async {

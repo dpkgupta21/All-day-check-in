@@ -174,13 +174,13 @@ public class Utility{
         
         let attr1 = NSMutableAttributedString(
             string: str1,
-            attributes: [NSFontAttributeName:font1])
+            attributes: [NSAttributedStringKey.font:font1])
         let attr2 = NSMutableAttributedString(
             string: str2,
-            attributes: [NSFontAttributeName:font2])
+            attributes: [NSAttributedStringKey.font:font2])
         let attr3 = NSMutableAttributedString(
             string: str3,
-            attributes: [NSFontAttributeName:font1])
+            attributes: [NSAttributedStringKey.font:font1])
         
         attr1.append(attr2)
         attr1.append(attr3)

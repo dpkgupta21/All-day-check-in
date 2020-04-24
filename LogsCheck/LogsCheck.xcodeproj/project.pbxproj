@@ -344,6 +344,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -611,7 +612,7 @@
 				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
 				PROVISIONING_PROFILE_SPECIFIER = AllDayClockIn;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -631,7 +632,7 @@
 				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
 				PROVISIONING_PROFILE_SPECIFIER = AllDayClockIn;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

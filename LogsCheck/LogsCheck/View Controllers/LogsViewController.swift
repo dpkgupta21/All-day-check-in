@@ -94,14 +94,14 @@ class LogsViewController: UIViewController , UITableViewDelegate, UITableViewDat
         
         
     }
-    internal func doneClicked(sender: UIBarButtonItem) {
+    @objc internal func doneClicked(sender: UIBarButtonItem) {
         startDate = startPicker.date
         //TxtFromDate.text = startDate.longDateString
         TxtFromDate.text = convertDateIntoFormatString(date: startDate);
         self.view.endEditing(true)
     }
     
-    internal func todoneClicked(sender: UIBarButtonItem) {
+    @objc internal func todoneClicked(sender: UIBarButtonItem) {
         endDate = endPicker.date
         //TxtToDate.text = endDate.longDateString
         TxtToDate.text = convertDateIntoFormatString(date: endDate);
