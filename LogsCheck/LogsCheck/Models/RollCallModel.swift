@@ -22,7 +22,7 @@ class RollCallModel: NSObject {
         do{
             ClockCardID = xml["ClockCardID"].value?.toInt()
             EmployeeID = xml["EmployeeID"].value?.toInt()
-            WorkDate = xml["WorkDate"].value?.toDate(format: Utility.longDateFormat)
+            WorkDate = xml["WorkDate"].value?.toUTCDate(format: Utility.longDateFormat)
             DayIn1 = xml["DayIn1"].value?.toDate(format: "HHmm")
             EmployeeName = xml["EmployeeName"].value
         }catch {

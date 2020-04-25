@@ -43,20 +43,34 @@ extension String {
             return 0;
         }
     }
+    
+    func toUTCDate(format:String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let date = dateFormatter.date(from: self)
+        return date
+    }
+    
     func toDate(format:String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        print("Before Time " + self)
         let date = dateFormatter.date(from: self)
+        print(date!)
+
         return date
     }
     
     func toTime() ->Date?{
         let RFC3339DateFormatter = DateFormatter()
         RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZZZZZ"
         RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return RFC3339DateFormatter.date(from: self)
     }
-   
     
 }
