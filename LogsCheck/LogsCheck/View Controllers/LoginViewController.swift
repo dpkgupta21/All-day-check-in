@@ -14,13 +14,13 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var BtnLogin: UIButton!
     @IBOutlet weak var TxtPassword: UITextField!
     @IBOutlet weak var TxtUserName: UITextField!
-    @IBOutlet weak var ImgLogo: UIImageView!
     @IBOutlet weak var BtnForgotPassword: UIButton!
     @IBOutlet weak var BtnShowPassword: UIButton!
     var locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.TxtUserName.text = UserDeafultsManager.SharedDefaults.Username
         self.TxtPassword.text = UserDeafultsManager.SharedDefaults.Password
         

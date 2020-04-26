@@ -43,7 +43,6 @@ extension String {
             return 0;
         }
     }
-    
     func toUTCDate(format:String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -72,5 +71,6 @@ extension String {
         RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return RFC3339DateFormatter.date(from: self)
     }
+   
     
 }

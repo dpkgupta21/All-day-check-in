@@ -222,10 +222,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         if checkLocEnable() == true{
             Utility.showProgressHud(text: "")
             CheckInResponseModel.CheckIn(status: "IN",
-                                         lat: String(describing: 0.00),
-                                         lang: String(describing: 0.00),
-//                                         lat: String(describing: locationManager.location!.coordinate.latitude),
-//                                         lang: String(describing: locationManager.location!.coordinate.longitude),
+//                                         lat: String(describing: 0.00),
+//                                         lang: String(describing: 0.00),
+                                         lat: String(describing: locationManager.location!.coordinate.latitude),
+                                         lang: String(describing: locationManager.location!.coordinate.longitude),
                                          callback: { (checkin, error) in
                                             
                                             DispatchQueue.main.async {
