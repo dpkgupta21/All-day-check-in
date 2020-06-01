@@ -1,0 +1,29 @@
+# CakePHP 3
+
+/vendor/*
+/config/app.php
+
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+# CakePHP 2
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
+/vendors/*
