@@ -36,8 +36,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         GetButtonStatus()
         GetCompanyTimeZone()
-        NotificationCenter.default.addObserver(self, selector: #selector(GetTime), name: .UIApplicationDidBecomeActive, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(GetTime), name: .UIApplicationDidBecomeActive, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +54,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             timer = nil
         }
         timer = Timer.scheduledTimer(timeInterval: 60*30, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-        
     }
     
     @objc func updateTimer() {
@@ -94,7 +93,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         })
         
-        
     }
     
     func GetCompanyTimeZone() {
@@ -121,22 +119,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         })
         
-        
     }
     
     func showTime()
     {
         DispatchQueue.main.async {
-        let h = self.strHours;
-        let m = self.strMinutes;
-        let s = self.strSeconds;
-        print("Show Time is  ", h!,":",m!, ":" , s!)
-        self.LblTime.text = String(h!) + ":" + String(m!) + ":" + String(s!);
+            let h = self.strHours;
+            let m = self.strMinutes;
+            let s = self.strSeconds;
+            print("Show Time is  ", h!,":",m!, ":" , s!)
+            self.LblTime.text = String(h!) + ":" + String(m!) + ":" + String(s!);
             
-//        self.checkInTime = self.LblTime.text!.toDate(format: "HH:mm:ss");
+            //        self.checkInTime = self.LblTime.text!.toDate(format: "HH:mm:ss");
             
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         }
     }
     
@@ -209,9 +206,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginNavigationVC") as! UINavigationController
         UIApplication.shared.keyWindow?.rootViewController = viewController
-        
     }
-    
     
     
     @IBAction func BtnLogsClicked(_ sender: Any) {
@@ -222,8 +217,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         if checkLocEnable() == true{
             Utility.showProgressHud(text: "")
             CheckInResponseModel.CheckIn(status: "IN",
-//                                         lat: String(describing: 0.00),
-//                                         lang: String(describing: 0.00),
                                          lat: String(describing: locationManager.location!.coordinate.latitude),
                                          lang: String(describing: locationManager.location!.coordinate.longitude),
                                          callback: { (checkin, error) in

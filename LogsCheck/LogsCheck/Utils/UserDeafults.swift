@@ -44,7 +44,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: CompanyIDKey)
         }
-        
     }
     
     var MemberID : String{
@@ -54,7 +53,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: MemberIDKey)
         }
-        
     }
     
     var Username : String{
@@ -64,7 +62,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: UsernameKey)
         }
-        
     }
     
     var Password : String{
@@ -74,7 +71,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: PasswordKey)
         }
-        
     }
     
     var FirstName : String{
@@ -84,7 +80,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: FirstNameKey)
         }
-        
     }
     
     var LastName : String{
@@ -94,7 +89,6 @@ class UserDeafultsManager: NSObject {
         set (value){
             UserDefaults.standard.set(value, forKey: LastNameKey)
         }
-        
     }
     
     var IsRollCallAllowed : Bool{
@@ -106,5 +100,16 @@ class UserDeafultsManager: NSObject {
         }
     }
     
+    public func RemoveAllUserDefaults()
+    {
+        UserDefaults.standard.removeObject(forKey: IsLoginKey)
+        UserDefaults.standard.removeObject(forKey: CompanyIDKey)
+        UserDefaults.standard.removeObject(forKey: MemberIDKey)
+        UserDefaults.standard.removeObject(forKey: UsernameKey)
+        UserDefaults.standard.removeObject(forKey: PasswordKey)
+        UserDefaults.standard.removeObject(forKey: FirstNameKey)
+        UserDefaults.standard.removeObject(forKey: LastNameKey)
+        UserDefaults.standard.removeObject(forKey: IsRollCallKey)
+    }
 
 }

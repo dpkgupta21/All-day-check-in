@@ -50,6 +50,7 @@
 		26AFA1A11F6E8D59009F7439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26AFA19F1F6E8D59009F7439 /* LaunchScreen.storyboard */; };
 		26AFA1CA1F6E8FFF009F7439 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */; };
 		26AFA1CF1F6E9321009F7439 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */; };
+		5AA4CCD124860FB50083CDB1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4CCD024860FB50083CDB1 /* SplashViewController.swift */; };
 		7693BD9B211B1869000FD3F9 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693BD9A211B1869000FD3F9 /* LoginResponseModel.swift */; };
 		856292AC614DEEFC573DECC8 /* Pods_LogsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D7FF06862F8682FE4E174C /* Pods_LogsCheck.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		580E433FB24443F6B2C8E897 /* Pods-LogsCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogsCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck.release.xcconfig"; sourceTree = "<group>"; };
+		5AA4CCD024860FB50083CDB1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7693BD9A211B1869000FD3F9 /* LoginResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		A76D4600D5E914017849EF31 /* Pods-LogsCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogsCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogsCheck/Pods-LogsCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		E7D7FF06862F8682FE4E174C /* Pods_LogsCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogsCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 		26AFA1C41F6E8F4C009F7439 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5AA4CCD024860FB50083CDB1 /* SplashViewController.swift */,
 				26AFA1C91F6E8FFF009F7439 /* LoginViewController.swift */,
 				26AFA1CE1F6E9321009F7439 /* HomeViewController.swift */,
 				26865ACA1F7F8733001BFE5B /* RollCallViewController.swift */,
@@ -334,7 +337,7 @@
 				TargetAttributes = {
 					26AFA1921F6E8D59009F7439 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = BJF5354GZ6;
+						DevelopmentTeam = VSJP33UXAP;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -450,6 +453,7 @@
 				26312F761F8232DD001907F4 /* SelectTerminalsViewController.swift in Sources */,
 				267001611F7C04EA0002DC40 /* UITextField+Additions.swift in Sources */,
 				26312F7E1F82680D001907F4 /* RollCallModel.swift in Sources */,
+				5AA4CCD124860FB50083CDB1 /* SplashViewController.swift in Sources */,
 				267C8BF31F7F0AD500EECE06 /* StringExtension.swift in Sources */,
 				26312F5B1F817996001907F4 /* ServerTimeResponseModel.swift in Sources */,
 				2670017A1F7C08910002DC40 /* Utility.swift in Sources */,
@@ -601,16 +605,18 @@
 			baseConfigurationReference = A76D4600D5E914017849EF31 /* Pods-LogsCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = BJF5354GZ6;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = VSJP33UXAP;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alldayclockin.alldayclockin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
-				PROVISIONING_PROFILE_SPECIFIER = AllDayClockIn;
+				PROVISIONING_PROFILE_SPECIFIER = Dev_1;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 			};
@@ -623,10 +629,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = BJF5354GZ6;
 				INFOPLIST_FILE = LogsCheck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alldayclockin.alldayclockin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "671f0883-f581-4665-a8dd-6987c9ae2a93";
